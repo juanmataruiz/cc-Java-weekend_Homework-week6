@@ -9,17 +9,17 @@ public class BedroomTest {
 
     @Before
     public void before() {
-        bedroom = new Bedroom(2,4, BedroomType.DOUBLEROOM,100);
+        bedroom = new Bedroom(2,10, BedroomType.DOUBLEROOM,100);
     }
 
     @Test
     public void canGetNoOfGuestsInRoom() {
-        assertEquals(2, bedroom.getNoOfGuestsInRoom());
+        assertEquals(0, bedroom.getNoOfGuestsInRoom());
     }
 
     @Test
     public void canGetCapacity() {
-        assertEquals(4, bedroom.getCapacity());
+        assertEquals(2, bedroom.getCapacity());
     }
 
     @Test
@@ -35,6 +35,21 @@ public class BedroomTest {
     @Test
     public void bedroomHasANightlyRate() {
         assertEquals(100.00, bedroom.getNightlyRate(),0.01 );
+    }
+
+    @Test
+    public void canAddAGuestToRoom() {
+        Guest guest1 = new Guest("Davina");
+        bedroom.addGuest(guest1);
+        assertEquals(1, bedroom.getNoOfGuestsInRoom());
+    }
+
+    @Test
+    public void canRemoveAGuestFromRoom() {
+        Guest guest1 = new Guest("Maria");
+        bedroom.addGuest(guest1);
+        bedroom.removeGuest(guest1);
+        assertEquals(0,bedroom.getNoOfGuestsInRoom());
     }
 
 
