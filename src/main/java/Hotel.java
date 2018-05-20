@@ -3,12 +3,10 @@ import java.util.ArrayList;
 public class Hotel {
 
     private ArrayList<Room> roomList;
-//    private ArrayList<Guest> guestsList;
+    
 
     public Hotel() {
         this.roomList = new ArrayList<>();
-//        this.guestsList = new ArrayList<>();
-//        hotelGuestsList();
     }
 
     public void checkInAGuest(Room room, Guest guest) {
@@ -35,6 +33,15 @@ public class Hotel {
         return room.getGuestsInRoom();
     }
 
-
+    public ArrayList<Room> listOfEmptyRooms() {
+        ArrayList<Room> vacantRooms = new ArrayList<>();
+        for (Room room : roomList) {
+            if (room.getGuestsInRoom().isEmpty()) {
+                vacantRooms.add(room);
+            }
+        }
+        return vacantRooms;
+    }
 
 }
+
