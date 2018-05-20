@@ -18,6 +18,14 @@ public class BedroomTest {
     }
 
     @Test
+    public void canGetGuestInRoom() {
+        Guest guest1 = new Guest("Maria");
+        bedroom.addGuest(guest1);
+        assertEquals(1, bedroom.getGuestsInRoom().size());
+//        assertEquals("Maria", bedroom.getGuestsInRoom().get(0));
+    }
+
+    @Test
     public void canGetCapacity() {
         assertEquals(2, bedroom.getCapacity());
     }

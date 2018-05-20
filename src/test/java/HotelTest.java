@@ -44,4 +44,10 @@ public class HotelTest {
         hotel.removeRoom(room);
         assertEquals(0, hotel.getRoomList().size());
     }
+
+    @Test
+    public void getHotelGuestList() {
+        hotel.checkInAGuest(room, guest);
+        assertEquals(1, hotel.hotelGuestList(room).size());
+    }
 }
